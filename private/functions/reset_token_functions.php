@@ -11,11 +11,11 @@ function reset_token() {
 // the given value. Can be used both to create and
 // to delete the token.
 function set_user_reset_token($username, $token_value) {
-    $user = User::getUser(sql_prep($username));
+    $user = User::getUser('username', sql_prep($username));
 
     if ($user) {
         $user['reset_token'] = $token_value;
-        User::userUpdateResetToken($user);
+        User::UpdateResetToken($user);
         return true;
     } else {
         return false;

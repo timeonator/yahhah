@@ -83,7 +83,7 @@ class User {
             die("Connect failed: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
         }
 
-        $sql = "UPDATE users SET  'reset_token' = ? where 'id' = ?";
+        $sql = "UPDATE users SET  reset_token = ? where id = ?";
         $stmt = $mysqli->prepare($sql);
 
         if (!$stmt) {
